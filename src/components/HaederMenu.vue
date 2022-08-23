@@ -1,40 +1,31 @@
 <template>
   <div id="header-menu">
-    <router-link :to="{ name: 'home'}">Home</router-link>
-    <router-link :to="{ name: 'users'}">users</router-link>
-    <router-link :to="{ name: 'data'}">data</router-link>
-    <router-link :to="{ name: 'memo'}">memo</router-link>
+    <router-link :to="{ name: 'home' }">Home</router-link>
   </div>
 </template>
 
 <script>
-
-export default {
-}
+export default {};
 </script>
 
 <style>
+#header-menu {
+  width: 100%;
+}
 
-    #header-menu{
-        width: 100%;
-        display: flex;
-        flex-direction: row;
+#header-menu > a {
+  display: inline-block;
+  width: 40%;
+  padding: 15px;
+  margin: 30px 30%;
 
-        border-bottom: 1px solid black;
-    }
+  font-size: 20pt;
+  color: white;
 
-    #header-menu > a {
-        width: 25%; 
-        padding: 15px;
-        margin: 30px;
+  background-color: rgb(181, 244, 244);
+  border-radius: 20px;
+  text-align: center;
 
-        font-size: 20pt;
-        text-decoration: none;
-        color: black;
-
-        background-color: rgb(181, 244, 244, 0.7);
-        border-radius: 20px;
-        text-align: center;
-    }
-    
+  box-shadow: 3px 5px rgb(0, 217, 255);
+}
 </style>
