@@ -1,27 +1,5 @@
 <template>
-  <div v-if="usersDataList === null" class="loader">
-    <img
-      width="70"
-      src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/04de2e31234507.564a1d23645bf.gif"
-    />
-    <h4>데이터를 불러오는 중입니다.</h4>
-  </div>
-
-  <div v-else-if="usersDataList.length < 1" class="loader">
-    <h4> 
-      <img width="40" src="https://cdn-icons-png.flaticon.com/512/179/179386.png?w=360" />
-        유저가 발견되지 않았습니다.
-    </h4>
-  </div>
-
-  <div v-else>
-    <!-- <input type="text" v-model="searchKeyword" /> -->
-    <create-list :dataList="usersDataList" :className="'users'" :linkName="'data'" />
-  </div>
-
-  <div v-if="usersId === null" class="getButton" @click="fetchData()">
-    유저 불러오기
-  </div>
+  <create-list :dataList="usersDataList" :className="'users'" :linkName="'data'" />
 </template>
 
 <script>
@@ -55,6 +33,7 @@ export default {
   },
 
   mounted() {
+    this.usersDataList = self.$list;
 	},
 
   // computed:{
