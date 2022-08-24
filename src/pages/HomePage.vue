@@ -1,5 +1,6 @@
 <template>
   <create-list :dataList="usersDataList" :className="'users'" :linkName="'data'" />
+  <button @click="showData()"></button>
 </template>
 
 <script>
@@ -30,10 +31,15 @@ export default {
         }
       });
     },
+
+    showData: function(){
+      console.log(this.$usersData);
+    }
   },
 
   mounted() {
-    this.usersDataList = self.$list;
+    this.usersDataList = this.$usersData;
+    console.log(this.$usersData);
 	},
 
   // computed:{

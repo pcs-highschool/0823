@@ -20,12 +20,11 @@ const router = createRouter({
   routes, 
 })
 
-
 const app = createApp(App) //app.vue 작동 완료
+
+
+app.config.globalProperties.$axios = Axios;
+app.config.globalProperties.$usersData = null;
 
 app.use(router) //라우트 세팅
 app.mount('#app') //html에 바인드
-
-app.config.globalProperties.$axios = Axios;
-app.config.globalProperties.$list = null;
-app.config.globalProperties.$usersData = null;
