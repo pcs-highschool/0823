@@ -67,7 +67,7 @@ export default {
 
   computed: {
     filteredData() {
-      return this.$usersData.filter((user) => {
+      return this.$usersData[0].filter((user) => {
         if (user.userId === Number(this.$route.params.userId)) {
           return user;
         }
@@ -92,24 +92,32 @@ h4 > img {
   margin-right: 10px;
 }
 .filter_box {
+  width: 500px;
+  margin: 0 auto;
   text-align: center;
+  border-bottom: 1px solid lightgray;
+
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
 }
 
 .filter_box > * {
-  display: inline-block;
-
-  margin: 0px 10px;
-  padding: 10px;
-
-  border: 2px solid plum;
-  border-radius: 30px;
   box-sizing: border-box;
-
   cursor: pointer;
+  padding: 10px 20px;
+  font-size: 18px;
+
+  transition: all 0.5s;
+  transform: translateX(0%);
 }
 
 .clickedDiv{
-  background-color: rgb(110, 239, 244);
+  border-radius: 8px 8px 0 0;
+  background-color: rgba(199, 253, 255, 0.507);
+  transition: all 0.2s;
+  transform: translateX(10%);
+  font-weight: bold;
 }
 
 </style>

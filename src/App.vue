@@ -1,17 +1,41 @@
 <template>
+  <div>
+    <header-menu />
   
-  <header-menu />
   <router-view></router-view>
-  
+  </div>
 </template>
 
 <script>
 import HeaderMenu from "./components/HaederMenu.vue";
 export default {
-  components:{
-    HeaderMenu
+  components: {
+    HeaderMenu,
+  },
+
+  data() {
+    return {
+      dataInserted: false,
+    };
+  },
+  mounted(){
+    let self = this;
+    this.$axios.get("https://jsonplaceholder.typicode.com/todos/")
+    .then(function(res){
+      if(res.status !== 200){
+        console.log("erorr");
+      } else{
+        self.$usersData[0] = res.data;
+        console.log(self.$usersData[0]);
+      }
+    })
   }
 };
 </script>
 
-<style></style>
+<style>
+*{
+  margin: 0;
+  padding: 0;
+}
+</style>

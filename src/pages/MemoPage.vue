@@ -64,7 +64,7 @@ export default {
 
   computed: {
     filteredData() {
-      return this.$usersData.filter((user) => {
+      return this.$usersData[0].filter((user) => {
         if (user.userId === Number(this.$route.params.userId)) {
           return user;
         }

@@ -1,6 +1,7 @@
 <template>
   <div id="header-menu">
     <router-link :to="{ name: 'home' }">Home</router-link>
+    <hr>
   </div>
 </template>
 
@@ -11,21 +12,36 @@ export default {};
 <style>
 #header-menu {
   width: 100%;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  padding: 5px 60px;
+  box-shadow: 2px 2px 10px lightblue;
+
 }
 
 #header-menu > a {
-  display: inline-block;
-  width: 40%;
-  padding: 15px;
-  margin: 30px 30%;
+  margin: 10px;
 
-  font-size: 20pt;
-  color: white;
-
-  background-color: rgb(181, 244, 244);
-  border-radius: 20px;
-  text-align: center;
-
-  box-shadow: 3px 5px rgb(0, 217, 255);
+  font-size: 23px;
+  font-weight: bold;
+  transition: all 0.2s;
+  position: relative;
+}
+#header-menu > a::before{
+  position: absolute;
+  content: "";
+  width: 0;
+  bottom: 0;
+  height: 1px;
+  transition: all 0.2s;
+}
+#header-menu > a:hover{
+  transform: scale(1.2);
+}
+#header-menu > a:hover::before{
+  width: 100%;
+  background-color: black;
 }
 </style>

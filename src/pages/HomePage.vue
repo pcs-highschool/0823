@@ -16,9 +16,9 @@
   <div v-else>
     <create-list :dataList="usersDataList" :className="'users'" :linkName="'data'" />
   </div>
-
-  <input type="button" @click="fetchData()" value="새로고침" />
   
+  <input type="button" @click="fetchData()" value="새로고침" class="getButton"/>
+
 </template>
 
 <script>
@@ -40,14 +40,15 @@ export default {
     fetchData: function() {
       this.usersId = [];
 			this.usersDataList = [];
-      this.$usersData.filter((user) => {
-        let user_id = user.userId;
+      this.$usersData[0].filter((user) => {
+        let userId = user.userId;
 
-        if (this.usersId.indexOf(user_id) === -1) {
-          this.usersId.push(user_id);
-					this.usersDataList.push(user);
+        if(this.usersId.indexOf(userId) == -1){
+          this.usersId.push(userId);
+          this.usersDataList.push(user);
         }
       });
+      console.log(this.usersDataList);
     },
   },
 
@@ -72,28 +73,31 @@ export default {
   color: black;
   text-decoration: none;
 }
-
-body {
-  background-color: azure;
+body{
+  overflow-x: hidden;
 }
-
 .loader {
   text-align: center;
   padding: 40px 0;
-  border: 2px solid aquamarine;
-  border-radius: 10px;
+
   margin: 50px;
 }
 
 .getButton {
-  display: inline-block;
 
-  border: 2px solid aquamarine;
-  margin-left: 50px;
-  padding: 5px;
-  border-radius: 20px;
-
+  border: 2px solid darkblue;
+  background-color: white;
+  display: block;
+  margin: 30px auto;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 15px;
   cursor: pointer;
+  transition: all 0.3s;
+}
+.getButton:hover{
+  background-color: darkblue;
+  color: white;
 }
 
 
